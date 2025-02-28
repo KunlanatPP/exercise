@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Exercise Tracker</title>
+    <link rel="stylesheet" href="/css/stylesheet.css?v=<%= Date.now() %>">
+</head>
+<body data-theme="<%= settings.theme %>">
+
+    <div class="register-container">
+        <div class="register-card">
+            <h1>Create Your Account</h1>
+
+            <% if (typeof message !== "undefined" && message) { %>
+                <p class="error-message"><%= message %></p>
+            <% } %>
+
+            <form id="register-form" action="/register" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <small>รหัสผ่านต้องมีความยาว 8-16 ตัวอักษร และต้องประกอบด้วย ตัวอักษร ตัวเลข และอักขระพิเศษ</small>
+                </div>
+
+                <button type="submit" class="register-btn">Sign Up</button>
+                <p id="loading-message" style="display: none; color: #6a5acd;">Processing your request...</p>
+            </form>
+
+            <p class="login-link">
+                Already have an account? <a href="/login">Login</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="/js/register.js"></script>
+
+</body>
+</html>

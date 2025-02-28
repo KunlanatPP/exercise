@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติการออกกำลังกาย</title>
+    <link rel="stylesheet" href="/css/stylesheet.css?v=<%= Date.now() %>">
+</head>
+<body data-theme="<%= settings.theme %>">
+    <div class="history-container">
+        <h1>ประวัติการออกกำลังกาย</h1>
+
+        <div class="filter-container">
+            <div class="filter-group">
+                <label for="filterDays">แสดงข้อมูลจาก:</label>
+                <select id="filterDays">
+                    <option value="7" <%= selectedDays == 7 ? "selected" : "" %>>7 วันล่าสุด</option>
+                    <option value="15" <%= selectedDays == 15 ? "selected" : "" %>>15 วันล่าสุด</option>
+                    <option value="30" <%= selectedDays == 30 ? "selected" : "" %>>30 วันล่าสุด</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="searchDate">ค้นหาวันที่:</label>
+                <input type="date" id="searchDate" value="<%= selectedDate %>">
+                <button id="searchBtn" class="search-btn">ค้นหา</button>
+            </div>
+        </div>
+
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>วันที่</th>
+                    <th>เวลารวม (นาที)</th>
+                    <th>ตัวเลือก</th>
+                </tr>
+            </thead>
+            <tbody id="history-table-body">
+                <% if (history && history.length > 0) { %>
+                    <% history.forEach(session => { %>
+                        <tr>
+                            <td><%= session.date %></td>
+                            <td><%= Math.floor(session.total_time / 60) %>:<%= (session.total_time % 60).toString().padStart(2, "0") %></td>
+                            <td>
+                                <a href="/history/<%= session.id %>" class="view-btn">ดู</a>
+                                <button class="delete-account-btn" data-id="<%= session.id %>">ลบ</button>
+                            </td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="3" class="error-message">❌ ไม่มีข้อมูล</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <a href="/dashboard" class="back-btn">Back to Dashboard</a>
+        </div>
+    </div>
+    <script src="/js/history.js"></script>
+</body>
+</html>

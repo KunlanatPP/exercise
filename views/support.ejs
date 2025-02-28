@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ท่าทางที่รองรับ</title>
+  <link rel="stylesheet" href="/css/stylesheet.css?v=<%= Date.now() %>">
+</head>
+<body class="support-page" data-theme="<%= settings.theme %>">
+  
+    <nav>
+      <h1>ท่าทางที่รองรับ</h1>
+    </nav>
+  
+
+  <main>
+    <div class="exercise-container">
+      <% exercises.forEach((ex) => { %>
+        <a href="/detailsupport/<%= ex.id %>" class="exercise-card">
+          <img src="<%= ex.image %>" alt="<%= ex.name %>" />
+          <h3><%= ex.name %></h3>
+          <p><%= ex.description %></p>
+        </a>
+      <% }) %>
+    </div>
+  </main>
+
+  <!-- ✅ ปุ่มกลับไป Dashboard -->
+  <div class="button-container">
+    <a href="/dashboard" class="back-btn">Back to Dashboard</a>
+  </div>
+
+</body>
+</html>

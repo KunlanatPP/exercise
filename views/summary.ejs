@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Summary</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/css/stylesheet.css?v=<%= Date.now() %>">
+</head>
+<body data-theme="<%= settings.theme %>">
+    <div class="summary-container">
+        <h1>Workout Summary</h1>
+        
+        <label for="daysRange">Select Range:</label>
+        <select id="daysRange">
+            <option value="7">Last 7 Days</option>
+            <option value="15">Last 15 Days</option>
+            <option value="30">Last 30 Days</option>
+        </select>
+
+        <label for="chart-toggle">Chart Type:</label>
+        <select id="chart-toggle">
+            <option value="bar">Bar Chart</option>
+            <option value="line">Line Chart</option>
+            <option value="pie">Pie Chart</option>
+        </select>
+
+        <p id="totalWorkoutTime">Total Workout Time: Loading...</p>
+        <div id="chart-container">
+            <canvas id="exerciseChart"></canvas>
+        </div>
+        <div class="button-container">
+    <a href="/dashboard" class="back-btn">Back to Dashboard</a>
+  </div>
+    </div>
+
+    <script src="/js/summary.js"></script>
+</body>
+</html>

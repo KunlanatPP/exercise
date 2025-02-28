@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= exercise.name %></title>
+  <link rel="stylesheet" href="/css/stylesheet.css?v=<%= Date.now() %>">
+</head>
+<body data-theme="<%= settings.theme %>">
+    <h1><%= exercise.name %></h1>
+    <a href="/support" class="back-button"><img src="/image/back-button.png" width="50" height="50"/></a>
+
+  <section class="exercise-detail-container">
+    <video class="exercise-video" controls>
+      <source src="<%= exercise.video %>" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="exercise-info">
+      <h2>Exercise </h2>
+      <ul>
+        <li><strong>Target Muscle:</strong> <%= exercise.targetMuscle %></li>
+        <li><strong>Exercise type:</strong> <%= exercise.exerciseType %></li>
+        <li><strong>Experience Level:</strong> <%= exercise.experience %></li>
+      </ul>
+    </div>
+
+    <h3 class="exercise-description">Overview</h3>
+    <p class="exercise-description"><%= exercise.description %></p>
+
+    <div class="exercise-steps">
+      <h3>Instructions</h3>
+      <ol>
+        <% exercise.steps.forEach(step => { %>
+          <li><%= step %></li>
+        <% }) %>
+      </ol>
+    </div>
+  </section>
+</body>
+</html>

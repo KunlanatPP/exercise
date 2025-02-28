@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings</title>
+    <link rel="stylesheet" href="/css/stylesheet.css?v=<%= Date.now() %>">
+</head>
+<body class="profilesetting-page" data-theme="<%= settings.theme %>">
+    <div class="profilesetting-container">
+        <h1>Profile Settings</h1>
+        
+        <h2>Update Username</h2>
+        <label for="username">New Username:</label>
+        <input type="text" id="username" minlength="3" value="<%= user.username %>">
+        <button id="saveUsername" class="save-btn">Save</button>
+        <p id="usernameStatus"></p>
+        
+        <h2>Update Password</h2>
+        <div class="password-container">
+            <div class="form-group-password">
+                <label for="oldPassword">Current Password:</label>
+                <input type="password" id="oldPassword">
+            </div>
+            <div class="form-group-password">
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" minlength="6">
+            </div>
+        </div>
+        <p id="passwordStatus"></p>
+        <button id="savePassword" class="save-btn">Change Password</button>
+        <p id="passwordStatus"></p>
+        
+        <h2>Set Workout Goal</h2>
+        <label for="goalMinutes">Daily Goal (Minutes):</label>
+        <input type="number" id="goalMinutes" min="1" value="<%= user.goals.daily_time %>">
+        <button id="saveGoal" class="save-btn">Save Goal</button>
+        <p id="goalStatus"></p>
+        
+        <div class="button-container">
+            <a href="/profile" class="back-btn">Back to Profile</a>
+          </div>
+    </div>
+
+    <script src="/js/profilesetting.js"></script>
+</body>
+</html>

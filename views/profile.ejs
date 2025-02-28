@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/stylesheet.css?v=<%= Date.now() %>">
+</head>
+<body data-theme="<%= settings.theme %>">
+    <div class="profile-container">
+        <h1>User Profile</h1>
+        <div id="profileInfo">
+            <p><strong>Username:</strong> <%= user.username %></p>
+            <p><strong>Email:</strong> <%= user.email %></p>
+            <p><strong>Daily Goal:</strong> <%= user.goals.daily_time %> minutes</p>
+        </div>
+        <a href="/profile/settings"><button class="edit-profile-btn">Edit Profile</button></a>
+        <div class="button-container">
+            <a href="/dashboard" class="back-btn">Back to Dashboard</a>
+          </div>
+    </div>
+</body>
+</html>

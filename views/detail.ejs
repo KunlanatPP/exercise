@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Detail</title>
+    <link rel="stylesheet" href="/css/stylesheet.css?v=<%= Date.now() %>">
+</head>
+<body data-theme="<%= settings.theme %>">
+    <div class="detail-container">
+        <h1>🏋️ Workout Detail</h1>
+        <div id="sessionDetail">
+            <p class="loading-message">🔄 กำลังโหลดข้อมูล...</p> <!-- ✅ แสดงข้อความขณะโหลด -->
+        </div>
+    </div>
+
+
+    <!-- ✅ เชื่อมโยง JavaScript -->
+    <script src="/js/detail.js"></script>
+</body>
+</html>

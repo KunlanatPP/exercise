@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Exercise Tracker</title>
+    <link rel="stylesheet" href="/css/stylesheet.css?v=<%= Date.now() %>">
+</head>
+<body data-theme="<%= settings.theme %>">
+
+    <div class="login-container">
+        <div class="login-card">
+            <h1>Welcome Back</h1>
+            <p class="subtitle">Sign in to continue</p>
+
+            <!-- ✅ แสดงข้อความแจ้งเตือนจากเซิร์ฟเวอร์ -->
+            <% if (typeof message !== "undefined" && message) { %>
+                <p class="error-message"><%= message %></p>
+            <% } %>
+
+            <!-- ✅ แสดง Error Message ผ่าน JavaScript -->
+            <p id="error-message" class="error-message" style="display: none;"></p>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <!-- ✅ ปุ่ม Remember Me -->
+                <div class="remember-me">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember Me</label>
+                </div>
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+            <p class="forgot-password">
+                <a href="/forgot-password">Forgot password?</a>
+            </p>
+
+            <p class="register-link">
+                Don't have an account? <a href="/register">Sign up</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- ✅ เชื่อมโยงไฟล์ JavaScript ภายนอก -->
+    <script src="/js/login.js"></script>
+
+</body>
+</html>

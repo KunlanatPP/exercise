@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise Session</title>
+  <link rel="stylesheet" href="/css/stylesheet.css?v=<%= Date.now() %>">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils"></script>
+</head>
+<body data-theme="<%= settings.theme %>">
+  <div class="session-container">
+    <header class="header">
+      <h1>Exercise Session</h1>
+      <div class="header-actions"> 
+      </div>
+    </header>
+
+    <!-- ✅ โซนจับภาพและแสดง Mediapipe -->
+    <section class="video-section" id="video-section">
+      <div class="video-wrapper">
+        <video id="webcam" autoplay playsinline></video> <!-- ✅ กล้อง -->
+        <canvas id="overlay"></canvas> <!-- ✅ แสดงผล Mediapipe -->
+      </div>
+    </section>
+
+    <!-- ✅ โซนแสดงข้อมูลขณะออกกำลังกาย -->
+    <section class="stats-section" id="stats-section">
+      <h2>Exercise Stats</h2>
+      <ul class="stats-list">
+        <li><strong>Session Time:</strong> <span id="session-time">0</span> seconds</li>
+        <li><strong>Current Pose:</strong> <span id="current-pose">None</span></li>
+        <li><strong>Reps:</strong> <span id="current-count">0</span></li> <!-- ✅ แสดงจำนวนครั้ง -->
+      </ul>
+    </section>
+
+    <!-- ✅ โซนสรุปผล หลังจากกดหยุด -->
+    <!-- ✅ โซนสรุปผล หลังจากกดหยุด -->
+    <section class="summary-section" id="summary-section" style="display: none;">
+      <h2>Session Summary</h2>
+      <p id="time-summary"></p>
+      <p id="goal-summary"></p> <!-- ✅ แสดงว่าทำสำเร็จหรือไม่ -->
+      <ul id="exercise-summary"></ul>
+    </section>
+
+
+  </div>
+
+  <!-- ✅ ปุ่มหยุด Session -->
+  <button id="end-session" class="end-btn">End Session</button>
+  <div class="button-container">
+    <a href="/dashboard" class="back-btn">Back to Dashboard</a>
+  </div> 
+  <script src="/js/session.js" defer></script>
+</body>
+</html>

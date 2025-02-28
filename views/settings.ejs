@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="/css/stylesheet.css?v=<%= Date.now() %>">
+</head>
+<body class="setting-page" data-theme="<%= settings.theme %>">
+    <div class="setting-container">
+        <h1>Settings</h1>
+        
+        <h2>Notification Settings</h2>
+        <label for="inactivityDays">Set inactivity days before reminder:</label>
+        <input type="number" id="inactivityDays" min="1" value="<%= settings.reminders %>">
+        <button id="saveSettings" class="save-settings-btn">Save</button>
+        <p id="statusMessage"></p>
+        
+        <h2>Other Settings</h2>
+        <label for="theme">Choose Theme:</label>
+        <select id="theme">
+        <option value="light" <%= settings.theme === 'light' ? 'selected' : '' %>>Light</option>
+        <option value="dark" <%= settings.theme === 'dark' ? 'selected' : '' %>>Dark</option>
+        </select>
+        <button id="saveTheme" class="save-settings-btn">Save Theme</button>
+        <p id="themeStatus"></p>
+
+        
+        <h2>Delete Account</h2>
+        <button id="deleteAccount" class="delete-account-btn">Delete My Account</button>
+
+        <div class="button-container">
+            <a href="/dashboard" class="back-btn">Back to Dashboard</a>
+          </div>
+    </div>
+
+    <script src="/js/settings.js"></script>
+</body>
+</html>

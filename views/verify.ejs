@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <link rel="stylesheet" href="/css/stylesheet.css?v=<%= Date.now() %>">
+</head>
+<body>
+    <div class="verification-container">
+        <h1>Email Verification</h1>
+        <p>✅ Your account has been created.</p>
+        <p>Please check your email (<strong><%= email %></strong>) and click the link to verify your account.</p>
+        
+        <!-- 🔹 ปุ่มขออีเมลยืนยันใหม่ -->
+        <button id="resend-verification-btn" class="resend-btn">Resend Verification Email</button>
+        <p id="resend-message" style="display: none; color: green;">✅ Verification email sent!</p>
+
+        <!-- 🔹 ลิงก์กลับไปหน้า Login -->
+        <p>Already verified? <a href="/login">Login here</a></p>
+    </div>
+
+    <script src="/js/verify.js"></script>
+
+</body>
+</html>
